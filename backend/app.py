@@ -5,7 +5,7 @@ from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
 
 # Import RAG utility functions
-from rag_utils import retrieve, rag
+from rag_utils import retrieve, retrieve_with_reranking,rag
 
 
 # ---------------------------------------------------------
@@ -187,7 +187,7 @@ def answer():
 
     # Extract parameters
     query = data["query"]
-    final_kk = data.get("k", 2)
+    final_k = data.get("k", 2)
     model_name = data.get("model_name", "gpt-4o-mini")
     temperature = data.get("temperature", 0.0)
     top_p = data.get("top_p", 1.0)
